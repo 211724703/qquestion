@@ -1,0 +1,52 @@
+const express = require('express')
+const app = express()
+const mogoose = require('mongoose')
+const dotenv = require('dotenv')
+const bodyParser = require('body-parser')
+const router = require('./routers/api')
+dotenv.config()
+
+let connectParams = {
+    newUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+}
+
+app.use(bodyParser.json())
+
+mogoose.connect(process.env.CONECT_DB, connectParams
+).then(() => {
+    console.log("db contected");
+}).catch((error) => {
+    console.log(`error: ${error}`);
+})
+
+app.use('/', router)
+
+app.listen(3000, () => {
+    console.log("listening in port 3000")
+})
+
+
+
+
+
+
+
+const user = await User.findById("5fb63a93fbf26511b0e6b018")
+const task1 = new Task({
+    description: "learn", completed: false,
+    userId: user._id
+})
+await task1.save();
+console.log(task1);
+await user.tasks.sh(task1);
+await user.save()
+const userP = await User.findById('5fb63a93fbf26511b0e6b018').populate('tasks')
+console.log(userP)
+const taskP = await Task.findById('5fc385d1284df9309484dfd9').populate('userId')
+console.log(taskP)
+
+const userTasksTrue = await User.findById('5fb63a93fbf26511b0e6b018')
+    .populate({ path: 'tasks', match: { completed: false } });
+console.log(user1)
