@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function mapStateToProps(state) {//מייבאים את הסטייט QUESTION מהSTOR
+function mapStateToProps(state) {
     return {
         question: state.question,
     };
