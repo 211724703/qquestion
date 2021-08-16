@@ -6,7 +6,7 @@ const initialState = {
 
 export default produce((state, action) => {
     switch (action.type) {
-        case 'ADD_ QUESTION': //להוסיף שאלה לרשימה האישית 
+        case 'ADD_ QUESTION': 
             { state.question.push(action.payLoad) }
             break
         case 'ADD_ QUESTIONS':
