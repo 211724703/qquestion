@@ -4,7 +4,7 @@ export async function signUpUser(user) {
  return   await axios.post('http://localhost:4000/newUser', user).then(
         res => {
             console.log('login work ' + JSON.stringify(res));
-            localStorage.setItem('userId', res.data.user._id)////////////
+            localStorage.setItem('userId', res.data.user._id)
             return res.data
         },
         err => {
@@ -62,7 +62,7 @@ export async function deleteQuestionFromData(questionId) {
 }
 
 export async function loginUser({ name, password }) {
-  const res =   await axios.get(`http://localhost:4000/getUser/${name}/${password}`)//השליחה לנוד
+  const res =   await axios.get(`http://localhost:4000/getUser/${name}/${password}`)
   console.log( res);
   return res.data
 }
