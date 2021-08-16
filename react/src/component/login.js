@@ -60,69 +60,6 @@ class Login extends React.Component {
                 </Link>
                 </Card>
 
-
-                <h1>רשימת מזג אויר  </h1>
-          <br></br>
-          {/* יצירת מזג אויר */}
-          <Card body style={{backgroundColor:"rgb(255, 153, 255)",with:"50px", hight:"450px" ,margin:"auto",padding: "10px"}}>
-                <h3 style={{color:"white"}}>צור מזג אויר</h3>
-                <input type="text"  ></input>
-                <button type="button" class="btn btn-outline-secondary">אישור</button>
-          </Card>
-          
-                <br></br>
-                <br></br>
-                <Button class="btn btn-dark"></Button>
-                <a href="/signUp" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">היסטורית מזג האויר</a>
-                <a href="/signUp" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">חזרה</a>
-                <br></br>
-                <br></br>
-                
-                {this.state.postWeather?.map(item=> <Card style={{backgroundColor:"rgb(255, 153, 255)",with:"50px", hight:"450px" ,margin:"auto",padding: "10px"}}> 
-                    <p> מזג האויר: <br></br> תאריך: {item.date}  <br></br>{item.wind}<br></br> <button>הוספה</button> <br></br><br></br>
-                    </p>
-                   
-                           </Card>
-                    ) }
-   
-   <Card style={{ width: '18rem' }}>
-  {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-  <Card.Body>
-    <Card.Title >היסטורית המזג האויר</Card.Title>
-
-    {this.state.postWeather?.map( item=> <Card style={{backgroundColor:"rgb(255, 246, 165)"}}>
-            <p>:מזג אויר 
-                <br></br>
-                :תאריך  {item.date}
-                <br></br>
-                {item.wind}
-                <br></br>
-                <button >מחיקה </button>
-            </p>
-             </Card>
-        )}
-   
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-         <h1>היסטורית המזג האויר</h1>
-        <br></br>
-        {this.state.postWeather?.map( item=>
-            // <Weather item={item} ondelete={ondelete} onupdate={onupdate}/>
-            <p>:מזג אויר 
-                <br></br>
-                :תאריך  {item.date}
-                <br></br>
-                {item.wind}
-                <br></br>
-                <button >מחיקה </button>
-            </p>
-        )}
-
-        
-
-
-
             </div>
 
 
