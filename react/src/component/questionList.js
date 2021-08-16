@@ -6,26 +6,26 @@ import { Link } from 'react-router-dom'
 import { Card, Button,Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function mapStateToProps(state) {//מקבל את הסטייטים ששמורים בסטור 
+function mapStateToProps(state) { 
     return {
         question: state.question,
     };
 }
-export default connect(mapStateToProps)(function QuestionList(props) { //מקשרת בין ריאק לרידאקס
+export default connect(mapStateToProps)(function QuestionList(props) { 
 
     const { question, dispatch } = props;
-    const [postsList, setPostsList] = useState([]);//מכיל את רשימת השאלות
+    const [postsList, setPostsList] = useState([]);
     const [questionState, setQuestionState] = useState("");
     const [answerState, setAnswerState] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
-    //מופעל כשהקומפוננטה ניטענת 
+     
     useEffect(async () => {
         try{
-      const historyData = await getHistoryQuestion();//הבאנו את ההיסטוריה האישית
+      const historyData = await getHistoryQuestion();
          console.log(historyData);
          dispatch(addQuestionsToState(historyData))
-        const rawData =  await fetch('https://jservice.io//api/clues');//קיבנו קישור של API
+        const rawData =  await fetch('https://jservice.io//api/clues');
         const data = await rawData.json()
         if (data)
             setPostsList(data)
